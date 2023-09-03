@@ -6,43 +6,45 @@
 	import { onMount } from 'svelte';
 
 	if (typeof window !== 'undefined') {
-    // Load cart items from local storage when the component initializes
-    const savedCartJSON = localStorage.getItem('cart');
-    const savedCart = savedCartJSON ? JSON.parse(savedCartJSON) : [];
-    cart.set(savedCart);
+		// Load cart items from local storage when the component initializes
+		const savedCartJSON = localStorage.getItem('cart');
+		const savedCart = savedCartJSON ? JSON.parse(savedCartJSON) : [];
+		cart.set(savedCart);
 
-	
-    // Rest of your component code here...
-  }
-  const addToCart = (/** @type {any } */ product) => {
-	const updatedCart = $cart.map(item => ({ ...item })); // Create a shallow copy
+		// Rest of your component code here...
+	}
+	const addToCart = (/** @type {any } */ product) => {
+		const updatedCart = $cart.map((/** @type {any} */ item) => ({ ...item })); // Create a shallow copy
 
-const existingItem = updatedCart.find(item => item.id === product.id);
+		const existingItem = updatedCart.find(
+			(/** @type {{ id: any; }} */ item) => item.id === product.id
+		);
 
-if (existingItem) {
-	existingItem.quantity += 1;
-} else {
-	updatedCart.push({ ...product, quantity: 1 });
-}
+		if (existingItem) {
+			existingItem.quantity += 1;
+		} else {
+			updatedCart.push({ ...product, quantity: 1 });
+		}
 
-cart.set(updatedCart); // Update the cart store
+		cart.set(updatedCart); // Update the cart store
 
-localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local storage
-};
-  const rmToCart = (/** @type {any } */ product) => {
-    const updatedCart = $cart.map(item => ({ ...item })); // Create a shallow copy
+		localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local storage
+	};
+	const rmToCart = (/** @type {any } */ product) => {
+		const updatedCart = $cart.map((/** @type {any} */ item) => ({ ...item })); // Create a shallow copy
 
-    const existingItem = updatedCart.find(item => item.id === product.id);
+		const existingItem = updatedCart.find(
+			(/** @type {{ id: any; }} */ item) => item.id === product.id
+		);
 
-    if (existingItem && existingItem.quantity > 0) {
-      existingItem.quantity -= 1; // Corrected line
-    }
+		if (existingItem && existingItem.quantity > 0) {
+			existingItem.quantity -= 1; // Corrected line
+		}
 
-    cart.set(updatedCart); // Update the cart store
+		cart.set(updatedCart); // Update the cart store
 
-    localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local storage
-  };
-
+		localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local storage
+	};
 </script>
 
 <section class="grid grid-cols-8">
@@ -84,21 +86,23 @@ localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local stora
 								<div class="flex flex-row justify-between w-[100%]">
 									<div class="flex flex-row">
 										<button
-										on:click={()=>{rmToCart(item)}}
-
+											on:click={() => {
+												rmToCart(item);
+											}}
 											class="focus:bg-gray-300 bg-white transition-colors duration-300 border-[1px] border-gray-200 text-center text-xl rounded-full h-6 w-6 flex flex-row items-center justify-center"
 											>-</button
 										>
 										<h1 class="text-sm font-bold">{item.quantity}</h1>
 										<button
-										on:click={()=>{addToCart(item)}}
+											on:click={() => {
+												addToCart(item);
+											}}
 											class="focus:bg-gray-300 bg-white transition-colors duration-300 border-[1px] border-gray-200 text-center text-xl rounded-full h-6 w-6 flex flex-row items-center justify-center"
 											>+</button
 										>
 									</div>
 									<button
 										class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-
 									/>
 								</div>
 							</div>
@@ -127,7 +131,7 @@ localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local stora
 					<script
 						src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
 					></script><lottie-player
-						class="shadow-sm bg-black h-64 "
+						class="shadow-sm bg-black h-64"
 						src="https://lottie.host/9f6e83c2-2bb6-44a0-8c9e-d30b3fd756a9/T26qbBFaVH.json"
 						background="#FFFFFF"
 						speed="1"
@@ -153,11 +157,15 @@ localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local stora
 				<div class="flex flex-col justify-between mx-[5%]">
 					<div class="flex flex-row justify-between mx-[5%]">
 						<h6>Subtotal</h6>
-						<h6 class="text-opacity-70 text-black font-bold">  ${(($totalItems * 1924.96).toFixed(2))} </h6>
+						<h6 class="text-opacity-70 text-black font-bold">
+							${($totalItems * 1924.96).toFixed(2)}
+						</h6>
 					</div>
 					<div class="flex flex-row justify-between mx-[5%]">
 						<h6>VAT</h6>
-						<h6 class="text-opacity-70 text-black font-bold">  ${(($totalItems * 274.99).toFixed(2))} </h6>
+						<h6 class="text-opacity-70 text-black font-bold">
+							${($totalItems * 274.99).toFixed(2)}
+						</h6>
 					</div>
 					<div class="flex flex-row justify-between mx-[5%]">
 						<h6>Delivery Costs</h6>
@@ -166,12 +174,16 @@ localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local stora
 				</div>
 				<div class="flex flex-row justify-between mx-[9.5%] mt-4">
 					<h6>Total</h6>
-					<h6 class="text-opacity-90 text-black font-bold text-lg">  ${(($totalItems * 2199.95).toFixed(2))} </h6>
+					<h6 class="text-opacity-90 text-black font-bold text-lg">
+						${($totalItems * 2199.95).toFixed(2)}
+					</h6>
 				</div>
-				<a href="https://buy.stripe.com/test_3cs3eT3TLeSI3U4aEE" 
-				class="w-[90%] rounded-2xl bg-green-900 h-16 mx-auto mb-2 text-center flex-col flex justify-center items-center">
+				<a
+					href="https://buy.stripe.com/test_3cs3eT3TLeSI3U4aEE"
+					class="w-[90%] rounded-2xl bg-green-900 h-16 mx-auto mb-2 text-center flex-col flex justify-center items-center"
+				>
 					<h1 class="text-white font-light text-lg">
-						<strong class="mr-1 text-xl">Checkout</strong>( ${(($totalItems * 2199.95).toFixed(2))})
+						<strong class="mr-1 text-xl">Checkout</strong>( ${($totalItems * 2199.95).toFixed(2)})
 					</h1>
 				</a>
 			{:else}

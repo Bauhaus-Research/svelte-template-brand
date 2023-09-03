@@ -23,13 +23,13 @@
 	class="h-fit snap-start w-min box-border border-l-[1px] border-[1px] mx-1 overflow-x-clip list-none border-gray-200 transition duration-200 ease-in font-base text-base hover:bg-gray-200 sm:col-span-2 col-span-3"
 >
 	<div class="flex flex-col justify-between items-start">
-		{#if discount_percent > 0}
+		<!-- {#if discount_percent > 0}
 			<div
 				class="h-6 bg-green-900 text-sm font-bold text-green-200 rounded-r-lg text-center px-2 mt-1"
 			>
 				Sale
 			</div>
-		{/if}
+		{/if} -->
 		<div class="w-full">
 			<div
 				class=" w-full aspect-square group bg-cover flex flex-col justify-end items-end"
