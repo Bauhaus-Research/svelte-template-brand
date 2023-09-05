@@ -1,13 +1,13 @@
 <script>
 	import { blur } from 'svelte/transition';
-	export let pageInt = 4;
+	export let pageInt = 3.5;
 	let scrollY = 0;
 	let innerHeight = 0;
 </script>
 
 <svelte:window bind:scrollY bind:innerHeight />
 
-<section class="h-screen md:block hidden overflow-x-clip bg-neutral-100">
+<section class="h-min overflow-x-clip bg-neutral-100">
 	<div class="flex flex-row items-center h-full justify-center w-full">
 		{#if scrollY < innerHeight * pageInt && scrollY > innerHeight * (pageInt - 1.5)}
 			<img

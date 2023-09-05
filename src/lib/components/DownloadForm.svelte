@@ -16,7 +16,7 @@
 	/**
 	 * @type {HTMLInputElement}
 	 */
-	let phone;
+	let restaurant;
 	/**
 	 * @type {HTMLSelectElement}
 	 */
@@ -31,6 +31,7 @@
 	 * @param {{ preventDefault: () => void; }} event
 	 */
 	async function submitForm(event) {
+		console.log('ih');
 		event.preventDefault();
 		// Validate form fields
 		console.log(
@@ -40,7 +41,7 @@
 				' ' +
 				email.value +
 				' ' +
-				phone.value +
+				restaurant.value +
 				' ' +
 				question.value +
 				' ' +
@@ -59,13 +60,14 @@
 					first: first_name.value,
 					last: last_name.value,
 					email: email.value,
-					phone: phone.value,
-					question: question.value,
-					zip: zip.value
+					company: restaurant.value,
+					zip: zip.value,
+					pageinfo: content
 				}
 			])
 			.select();
 	}
+	export let content = 'null';
 </script>
 
 <section
@@ -112,7 +114,7 @@
 					placeholder="Doe"
 				/>
 			</div>
-			<div class="col-span-2 sm:col-span-1">
+			<div class="col-span-2">
 				<label for="email" class="mb-2 text-opacity-60 text-xs text-red-950">Email Address*</label>
 				<input
 					type="email"
@@ -123,29 +125,17 @@
 					required
 				/>
 			</div>
-			<div class="col-span-2 sm:col-span-1">
-				<label for="phone" class=" mb-2 text-opacity-60 text-xs text-red-950">Phone</label>
+			<div class="col-span-1">
+				<label for="restaurant" class=" mb-2 text-opacity-60 text-xs text-red-950"
+					>Restaurant Name</label
+				>
 				<input
 					type="tel"
-					bind:this={phone}
-					id="phone"
+					bind:this={restaurant}
+					id="restaurant"
 					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-					placeholder="(813) 123-4567"
+					placeholder="John's Dough"
 				/>
-			</div>
-
-			<div class="col-span-2">
-				<label for="countries" class="block mb-1 mt-2 text-opacity-60 text-xs text-red-950"
-					>Answer to the best of your ability</label
-				>
-				<select
-					id="countries"
-					bind:this={question}
-					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-				>
-					<option selected>I currently own a restaurant</option>
-					<option value="US">I do not currently own a restaurant</option>
-				</select>
 			</div>
 			<div class="col-span-1">
 				<label for="company" class="mb-2 text-opacity-60 text-xs text-red-950">Zip Code</label>
@@ -155,18 +145,6 @@
 					bind:this={zip}
 					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
 					placeholder="33620"
-					required
-				/>
-			</div>
-			<div class="col-span-1">
-				<label for="promo" class=" mb-2 text-opacity-60 text-xs text-red-950">Promo Code</label>
-				<input
-					readonly
-					disabled
-					type="email"
-					id="promo"
-					class="bg-gray-50 border border-gray-300 dark:focus:border-0 dark:focus:border-white cursor-default text-gray-900 text-sm rounded-lg w-full p-2.5"
-					placeholder="LAUNCH23"
 					required
 				/>
 			</div>

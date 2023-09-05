@@ -1,7 +1,7 @@
 <script>
 	import { brandName, context } from '$lib/stores/brandStore';
 	import OpenAI from 'openai';
-	
+
 	const openai = new OpenAI({
 		apiKey: import.meta.env.VITE_OPENAI_API_KEY,
 		dangerouslyAllowBrowser: true
@@ -60,7 +60,10 @@
 	let search = 0;
 </script>
 
-<form class="h-[30rem] sm:w-96 px-4 py-4 border-2 border-blue-500 rounded-lg w-80 flex flex-col justify-between bg-gray-900" on:submit={handleSubmit}>
+<form
+	class="h-[30rem] sm:w-96 px-4 py-4 border-2 border-blue-500 rounded-lg w-80 flex flex-col justify-between bg-gray-900"
+	on:submit={handleSubmit}
+>
 	<div class="col-span-2 w-full">
 		<ul class="font-normal text-lg text-gray-600 text-center mt-2 flex flex-row justify-center">
 			<button class:class-active={search === 1} class="mx-3">Ask Ai</button>

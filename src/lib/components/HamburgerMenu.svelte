@@ -4,12 +4,12 @@
 	export let scrollY = 0;
 </script>
 
-<nav class="lg:hidden self-start -translate-y-2.5 p-1">
-	<button
-		class="text-gray-500 w-10 h-min relative focus:outline-none"
-		on:click={() => (open = !open)}
-		on:keydown={() => (open = !open)}
-	>
+<nav
+	class="lg:hidden self-start pb-4 -translate-y-2.5 p-1"
+	on:click={() => (open = !open)}
+	on:keydown={() => (open = !open)}
+>
+	<button class="text-gray-500 w-10 h-min relative focus:outline-none">
 		<span class="sr-only">Open main menu</span>
 		<div class="block w-8 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
 			<span

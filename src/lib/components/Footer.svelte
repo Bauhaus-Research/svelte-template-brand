@@ -2,53 +2,34 @@
 	import { onMount } from 'svelte';
 	import Coupon from './Coupon.svelte';
 	import { brandName } from '$lib/stores/brandStore.js';
+	import supabase from '$lib/db';
 
-	let newEmail = '';
+	let newEmail = ' ';
+	/**
+	 * @type {HTMLInputElement}
+	 */
+	let email;
+	let formSuccess = false; // Variable to track form submission success
 
-	const isValidEmail = (/** @type {string} */ email) => {
-		// Regular expression to validate email format
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		return emailRegex.test(email);
-	};
+	/**
+	 * @param {{ preventDefault: () => void; }} event
+	 */
+	async function submitForm(event) {
+		event.preventDefault();
+		// Validate form fields
+		formSuccess = true;
 
-	const addNewEmail = async () => {
-		try {
-			// Check if the newEmail has more than 6 characters
-			if (newEmail.length <= 6) {
-				console.log('Email must have more than 6 characters.');
-				return;
-			}
-
-			// Check if the newEmail is a valid email format
-			if (!isValidEmail(newEmail)) {
-				console.log('Invalid email format.');
-				return;
-			}
-			console.log('Email is valid.');
-		} catch (error) {
-			// Handle the error here
-		}
-	};
-
-	// Optionally, you can add code to call the addNewEmail function on component mount
-	onMount(() => {
-		addNewEmail();
-	});
+		await supabase
+			.from('leadform')
+			.insert([{ email: email.value }])
+			.select();
+	}
 </script>
 
 <footer
 	id="footer"
 	class="z-40 col-span-12 bg-neutral-900 text-stone-200 sm:px-10 px-2 overflow-hidden grid grid-flow-row grid-cols-8 h-full w-full justify-center"
 >
-	<section
-		class="text-stone-200 py-10 flex sm:flex-row flex-col justify-center items-center overflow-hidden col-span-8 xl:col-span-4"
-	>
-		<div class="w-4" />
-		<div class="flex">
-			<Coupon deal="5% Off" dealtext="Any Rugs in Stock" />
-			<Coupon deal="20% Off" dealtext="Back to School supplies" text="Apply" />
-		</div>
-	</section>
 	<section class="bg-neutral-900 xl:col-span-4 col-span-8 flex flex-col mb-10">
 		<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
 			<div class="mx-auto max-w-screen-md sm:text-center">
@@ -87,7 +68,7 @@
 						</div>
 						<div>
 							<button
-								on:click={addNewEmail}
+								on:click={submitForm}
 								type="submit"
 								class="py-3 px-5 w-full text-sm font-medium text-center text-white bg-white bg-opacity-40 rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300"
 								>Subscribe</button
@@ -104,6 +85,32 @@
 					</div>
 				</form>
 			</div>
+		</div>
+	</section>
+	<section
+		class="text-stone-200 py-10 flex sm:flex-row flex-col justify-center items-center overflow-hidden col-span-8 xl:col-span-4"
+	>
+		<div class="w-4" />
+		<div class="flex flex-col text-white">
+			<a
+				href="/terms"
+				class="text-lg duration-200 transition-colors font-light hover:text-orange-400"
+				>Terms of Use</a
+			>
+			<a
+				href="/privacy"
+				class="text-lg font-light duration-200 transition-colors hover:text-orange-400"
+				>Privacy Policy</a
+			>
+			<a
+				href="/cookies"
+				class="text-lg font-light duration-200 transition-colors hover:text-orange-400"
+				>Cookies Policy</a
+			>
+			<a
+				href="/support"
+				class="text-lg font-light duration-200 transition-colors hover:text-orange-400">Support</a
+			>
 		</div>
 	</section>
 

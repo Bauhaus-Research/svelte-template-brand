@@ -7,9 +7,9 @@
 	import '../app.css';
 	import './styles.css';
 	import { dev } from '$app/environment';
-import { inject } from '@vercel/analytics';
- 
-inject({ mode: dev ? 'development' : 'production' });
+	import { inject } from '@vercel/analytics';
+
+	inject({ mode: dev ? 'development' : 'production' });
 	/** @type {import('./$types').LayoutServerData} */
 	export let data;
 
@@ -22,12 +22,8 @@ inject({ mode: dev ? 'development' : 'production' });
 	}
 </script>
 
-
-
 <div class="app">
 	<main>
 		<slot />
-
 	</main>
-
 </div>

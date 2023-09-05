@@ -1,23 +1,32 @@
 <script>
-	import { favs } from "$lib/stores/Favs";
+	import { favs } from '$lib/stores/Favs';
 
 	export let id = 'id';
 	export let checked = false;
 
 	const addTofavs = (/** @type {any } */ product) => {
-		if($favs.includes(product)) {
+		if ($favs.includes(product)) {
 			$favs.map((item) => {
-				$favs = $favs
-			})
-			return
+				$favs = $favs;
+			});
+			return;
 		}
-		product.quantity += 1
-		$favs = [...$favs, product]
-	}
-	
+		product.quantity += 1;
+		$favs = [...$favs, product];
+	};
 </script>
 
-<input type="checkbox" class="checkbox" {id} bind:checked on:click={()=>{checked===false? addTofavs({ id: 3, name: 'Grapes', image: '🍇', price: 15, quantity: 0 }): null}}/>
+<input
+	type="checkbox"
+	class="checkbox"
+	{id}
+	bind:checked
+	on:click={() => {
+		checked === false
+			? addTofavs({ id: 3, name: 'Grapes', image: '🍇', price: 15, quantity: 0 })
+			: null;
+	}}
+/>
 <label for={id}>
 	<svg id="heart-svg" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg">
 		<g id="Group" fill="none" fill-rule="evenodd" transform="translate(467 392)">
