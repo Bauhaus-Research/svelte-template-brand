@@ -24,7 +24,7 @@
 			<h1 class="text-center font-bold md:text-5xl text-2xl">{title}</h1>
 			<div class="mx-10 h-[1px] w-auto bg-gray-600 mt-3" />
 			<p class="px-10 mt-10 font-semibold">{updated}</p>
-			<p class="px-10 mt-10">{text}</p>
+			<p class="px-10 mt-10">{@html text}</p>
 		</div>
 	</section>
 </section>

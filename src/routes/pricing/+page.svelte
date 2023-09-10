@@ -2,26 +2,25 @@
 	import AddOns from '$lib/components/AddOns.svelte';
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import FaqItem from '$lib/components/FaqItem.svelte';
+	import va from '@vercel/analytics';
 	import Footer from '$lib/components/Footer.svelte';
 	import Nav from '$lib/components/Nav.svelte';
-	import { faqItem, websiteServices } from '$lib/stores/brandStore';
+	import { calendly, faqItem, websiteServices } from '$lib/stores/brandStore';
+	import SpecialOffer from '$lib/components/SpecialOffer.svelte';
 	let paymentOPtions = ['visa', 'mastercard', 'amex', 'discover', 'applepay', 'gpay', 'paypal'];
 
 	let ccPrice = 2000;
 	let ccDisc = 5;
 </script>
 
-<!-- (<a href="#" class="text-blue-600 hover:underline">view all</a>) -->
+<!-- (<a target="_self" href="#" class="text-blue-600 hover:underline">view all</a>) -->
 
 <Nav innerHeight={400} scrollY={200} />
 <section class=" bg-neutral-100 flex flex-col justify-evenly text-center pt-20 h-[150vh]">
-	<h1 class="text-6xl font-bold">Pricing</h1>
 	<div>
-		<h3 class="md:text-2xl text-xl font-bold w-1/2 min-w-[23rem] mx-auto">
-			No contracts, or hidden fees. Just simple plans built to work for real business needs.
-		</h3>
-		<h3 class="md:text-xl font-light w-1/2 px-10 mx-auto min-w-[20rem] text-sm">
-			For additional suppport before making your purchase, ask ALBERT, its worth it.
+	<h1 class="text-4xl mb-4 font-bold md:text-6xl w-1/2 min-w-[23rem] mx-auto">Core Pricing</h1>
+		<h3 class="md:text-2xl text-xl font-light w-1/2 min-w-[23rem] mx-auto">
+			Core monthly pricing bundles with some of our essential services.
 		</h3>
 	</div>
 	<AddOns />
@@ -53,52 +52,10 @@
 			After previous issues with the food truck services, Atlas Brewing started to make a big change
 		</p>
 	</div>
-	<div
-		class="rounded-xl w-[22rem] shadow-lg md:w-[30rem] max-h-[30rem] m-2 h-1/2 bg-white flex flex-row"
-	>
-		<div class="flex flex-col justify-evenly h-full w-1/2 py-4 px-4">
-			<h3 class="text-2xl font-bold text-start ">Concept Bundle</h3>
-			<div>
-				<h1 class="text-2xl font-light line-through text-red-900">${ccPrice}</h1>
-				<h1 class="text-4xl font-bold">
-					${ccPrice * ((100 - ccDisc) / 100)}<span class="text-sm">({ccDisc}% off)</span>
-				</h1>
-			</div>
-			<div class="flex">
-				<h1 class="text-xs font-light text-neutral-600">per concept / per month</h1>
-			</div>
-			<p class="text-xs font-semibold text-neutral-500">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-			</p>
-			<p class="text-xs font-semibold text-neutral-500">Includes everything in: these plans</p>
-			<a
-				href="/"
-				class="px-6 py-2 rounded-full text-center border-red-600 shadow-xl border-2 bg-red-900 hover:bg-opacity-90 duration-200 transition-all text-neutral-100 font-bold"
-				>Get Started</a
-			>
-		</div>
 
-		<div
-			class="flex flex-col pl-2 justify-evenly h-[75%] my-auto w-1/2 border-l-2 text-xs sm:text-base border-neutral-500"
-		>
-			<div class="flex">
-				<img src="checkmarks/check.svg" alt="check" class="w-6" />
-				<h6 class="ml-2">Customized Website</h6>
-			</div>
-			<div class="flex">
-				<img src="checkmarks/check.svg" alt="check" class="w-6" />
-				<h6 class="ml-2">Branded Marketing Tools</h6>
-			</div>
-			<div class="flex">
-				<img src="checkmarks/check.svg" alt="check" class="w-6" />
-				<h6 class="ml-2">Annual Business Review</h6>
-			</div>
-			<div class="flex">
-				<img src="checkmarks/check.svg" alt="check" class="w-6" />
-				<h6 class="ml-2">Annual Website Redesign</h6>
-			</div>
-		</div>
-	</div>
+	<SpecialOffer />
+
+		
 </section>
 
 <section
@@ -139,6 +96,9 @@
 				<div>
 					<a
 						href="#"
+						on:click={() => {
+							va.track('buy_now_starter');
+						}}
 						class="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center"
 						>Buy now</a
 					>
@@ -146,6 +106,9 @@
 				<div>
 					<a
 						href="#"
+						on:click={() => {
+							va.track('buy_now_standard');
+						}}
 						class="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center"
 						>Buy now</a
 					>
@@ -153,6 +116,9 @@
 				<div>
 					<a
 						href="#"
+						on:click={() => {
+							va.track('buy_now_premium');
+						}}
 						class="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center"
 						>Buy now</a
 					>
@@ -160,11 +126,17 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section>c
 <section
 	id="customPricing"
 	class="h-screen justify-center items-center bg-neutral-100 flex flex-col text-center"
 >
+	<div
+		class="h-8 border-green-800 sm:w-[30rem] w-[23rem] border-2 bg-green-500 text-green-100 flex justify-center text-center font-bold rounded-xl shadow-md mb-2"
+	>
+		<img src="coin.svg" alt="coin" class="mr-4" />
+		<h3>30 Day Money Back Guarantee</h3>
+	</div>
 	<ContactForm />
 </section>
 <section class="flex flex-col justify-center py-24 items-center bg-neutral-100">

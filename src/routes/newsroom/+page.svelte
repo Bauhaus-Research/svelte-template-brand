@@ -8,10 +8,6 @@
 			link: '/mission'
 		},
 		{
-			title: 'Menu',
-			link: '/services'
-		},
-		{
 			title: 'News',
 			link: '/newsroom'
 		},
@@ -36,23 +32,22 @@
 
 <svelte:window bind:scrollY bind:innerHeight />
 <section class="overflow-x-clip bg-neutral-100">
-	<Nav scrollY={scrollY + 11} {innerHeight} />
+	<Nav scrollY={2000} {innerHeight} />
 
 	<section class="h-screen bg-neutral-100 flex flex-col justify-center">
-		<div
-			class="lg:h-3/4 h-full flex flex-col lg:flex-row lg:justify-between justify-start items-center"
-		>
-			<div class="overflow-clip aspect-video h-96 rounded-r-none lg:rounded-r-xl">
-				<img
-					in:blur={{ duration: 1000 }}
-					out:blur={{ duration: 300 }}
-					style="transform: translate(0, {(scrollY - (innerHeight * 5) / 2) * 0.11}px)"
-					class="h-[180%] z-10 transition-transform duration-500 ease-out rounded-r-none lg:rounded-r-xl"
-					src="taco2.webp"
-					alt=""
-				/>
-			</div>
 
+		<div class="md:h-3/4 h-full flex flex-col md:flex-row md:justify-between justify-start">
+			
+			<div
+			class="h-2/3 md:w-5/12 rounded-r-xl self-center aspect-auto overflow-clip mt-auto -translate-y-24 flex flex-col"
+		>
+			<img
+				style="transform: translate(0,{-(scrollY - innerHeight / 2) * 0.15}px)"
+				class="text-white text-4xl md:mr-20 h-[70rem] object-cover object-left	 rounded-r-xl transition-transform duration-400 ease-linear self-start"
+				src="taco2.webp"
+					alt="taco in hand that looks delicious"
+			/>
+		</div>
 			<div
 				style="transform: translate(0,{-(scrollY - innerHeight / 2) * 0.15}px)"
 				class=" md:w-1/2 flex flex-col justify-center items-start font-serif text-5xl"
@@ -70,7 +65,7 @@
 		{/if}
 	</section>
 
-	<section class="h-screen bg-neutral-100">
+	<section id="newsList" class="h-screen pt-24 bg-neutral-100">
 		<div class="w-auto flex flex-col md:mx-20 mx-5 py-12">
 			<h1 class="text-5xl font-serif mb-10 font-light">
 				Press Releases<span class="text-xs">({pressRelCount})</span>
@@ -89,6 +84,7 @@
 								</div>
 								<a
 									href="/newsroom/{item.slug}"
+									target="_self"
 									class=" mb-4 font-bold text-red-950 group-hover:text-red-800 duration-300 transition-all"
 									>Read this post
 								</a>
@@ -102,29 +98,3 @@
 
 	<Footer />
 </section>
-
-<style>
-	.fade-underline {
-		position: relative;
-		display: inline-block;
-		padding-bottom: 1px; /* Adjust as needed */
-	}
-
-	.fade-underline::before {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 2px; /* Adjust as needed */
-		background-color: rgb(127 29 29); /* Change to your desired color */
-		transform-origin: left center;
-		transform: scaleX(0);
-		transition: transform 0.3s ease-in-out;
-	}
-
-	.fade-underline:hover::before {
-		transform: scaleX(1);
-		transform-origin: right center;
-	}
-</style>

@@ -1,6 +1,7 @@
 <script>
 	import { blur } from 'svelte/transition';
 	import supabase from '$lib/db.js';
+	import Logo from '$lib/components/Logo.svelte';
 	/**
 	 * @type {HTMLInputElement}
 	 */
@@ -77,7 +78,10 @@
 		<div
 			class="bg-white rounded-lg p-8 flex flex-col justify-center items-center text-red-950 sm:w-[30rem] w-[23rem]"
 		>
-			<h1 class="text-xl text-red-950 font-bold">Emailed</h1>
+			<h1 class="text-xl text-red-950 font-bold">
+				Check your email by the end of the day for an email from us
+			</h1>
+			<img src="coin.svg" class="h-20 w-20 animate-spin" alt="coin" />
 		</div>
 	</div>
 	<div class={formSuccess === true ? 'hidden' : 'block'}>
@@ -86,10 +90,10 @@
 			class="bg-[#ecebe9] rounded-lg p-8 grid gap-x-2 md:mb-6 grid-cols-2 text-red-950 sm:w-[30rem] w-[23rem]"
 		>
 			<h1 class="col-span-2 font-bold font-serif text-xl text-red-950">
-				Unclaimed Medicare Benefits
+				Start Talking to our team
 			</h1>
 			<p class="col-span-2 mb-2 text-sm text-red-950 text-opacity-70">
-				Are you missing out? Take the first step in reclaiming what's yours today.
+				Schedule an appointment to see how we could help
 			</p>
 			<div class="col-span-1">
 				<label for="first_name" class="mb-2 text-opacity-60 text-xs text-red-950">First Name*</label
@@ -100,6 +104,7 @@
 					bind:this={first_name}
 					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
 					placeholder="John"
+					required
 				/>
 			</div>
 			<div class="col-span-1">
@@ -110,6 +115,7 @@
 					id="last_name"
 					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
 					placeholder="Doe"
+					required
 				/>
 			</div>
 			<div class="col-span-2 sm:col-span-1">
@@ -155,7 +161,6 @@
 					bind:this={zip}
 					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
 					placeholder="33620"
-					required
 				/>
 			</div>
 			<div class="col-span-1">
@@ -167,7 +172,6 @@
 					id="promo"
 					class="bg-gray-50 border border-gray-300 dark:focus:border-0 dark:focus:border-white cursor-default text-gray-900 text-sm rounded-lg w-full p-2.5"
 					placeholder="LAUNCH23"
-					required
 				/>
 			</div>
 			<div class="flex items-start mb-6 col-span-2 mt-2">

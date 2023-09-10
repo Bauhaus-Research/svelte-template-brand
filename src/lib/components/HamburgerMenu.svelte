@@ -5,7 +5,7 @@
 </script>
 
 <nav
-	class="lg:hidden self-start pb-4 -translate-y-2.5 p-1"
+	class="lg:hidden self-start my-auto py-2 -translate-y-2.5 p-1"
 	on:click={() => (open = !open)}
 	on:keydown={() => (open = !open)}
 >

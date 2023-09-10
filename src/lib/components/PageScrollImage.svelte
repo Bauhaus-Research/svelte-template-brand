@@ -9,46 +9,64 @@
 
 <section class="h-min overflow-x-clip bg-neutral-100">
 	<div class="flex flex-row items-center h-full justify-center w-full">
-		{#if scrollY < innerHeight * pageInt && scrollY > innerHeight * (pageInt - 1.5)}
+		{#if scrollY > innerHeight * (pageInt )}
+		<img
+			alt="Previous Client"
+			in:blur={{ duration: 500,delay: 0 }}
+			out:blur={{ duration: 100 }}
+			style="transform: translate({-(scrollY - innerHeight * (pageInt )-1000) * 0.4}px,0)"
+			class=" transition-transform  duration-1000 ease-out rounded-lg mx-8 h-60"
+			src="busown1.webp"
+		/>
+		<img
+		alt="Previous Client"
+			in:blur={{ duration: 500,delay: 50 }}
+			out:blur={{ duration: 100 }}
+			style="transform: translate({-(scrollY - innerHeight * (pageInt )-1000) * 0.4}px,0)"
+			class=" transition-transform  duration-1000 ease-out rounded-lg mx-8 h-60"
+			src="busown2.webp"
+		/>
 			<img
-				alt=""
-				in:blur={{ duration: 500 }}
+			alt="Previous Client"
+				in:blur={{ duration: 500,delay: 100 }}
 				out:blur={{ duration: 100 }}
-				style="transform: translate({-(scrollY - innerHeight * (pageInt - 1.5)) * 0.4}px,0)"
-				class=" transition-transform duration-500 ease-out rounded-lg mx-8 h-60"
-				src="taco3.webp"
+				style="transform: translate({-(scrollY - innerHeight * (pageInt )-1000) * 0.4}px,0)"
+				class=" transition-transform  duration-1000 ease-out rounded-lg mx-8 h-60"
+				src="busown3.webp"
 			/>
 			<img
-				alt=""
-				in:blur={{ duration: 500 }}
+			alt="Previous Client"
+				in:blur={{ duration: 500,delay: 150 }}
 				out:blur={{ duration: 100 }}
-				style="transform: translate({-(scrollY - innerHeight * (pageInt - 1.5)) * 0.4}px,0)"
-				class=" transition-transform duration-500 ease-out rounded-lg mx-8 h-60"
-				src="taco4.webp"
+				style="transform: translate({-(scrollY - innerHeight * (pageInt )-1000) * 0.4}px,0)"
+				class=" transition-transform  duration-1000 ease-out rounded-lg mx-8 h-60"
+				src="busown4.webp"
 			/>
 			<img
-				alt=""
-				in:blur={{ duration: 500 }}
+			alt="Previous Client"
+				in:blur={{ duration: 500,delay: 200 }}
 				out:blur={{ duration: 100 }}
-				style="transform: translate({-(scrollY - innerHeight * (pageInt - 1.5)) * 0.4}px,0)"
-				class=" transition-transform duration-500 ease-out rounded-lg mx-8 h-60"
-				src="taco5.webp"
+				style="transform: translate({-(scrollY - innerHeight * (pageInt )-1000) * 0.4}px,0)"
+				class=" transition-transform  duration-1000 ease-out rounded-lg mx-8 h-60"
+				src="busown5.webp"
 			/>
 			<img
-				alt=""
-				in:blur={{ duration: 500 }}
+
+			alt="Previous Client"
+				in:blur={{ duration: 500,delay: 250 }}
 				out:blur={{ duration: 100 }}
-				style="transform: translate({-(scrollY - innerHeight * (pageInt - 1.5)) * 0.4}px,0)"
-				class=" transition-transform duration-500 ease-out rounded-lg mx-8 h-60"
-				src="taco6.webp"
+				style="transform: translate({-(scrollY - innerHeight * (pageInt)-1000) * 0.4}px,0)"
+				class=" transition-transform  duration-1000 ease-out rounded-lg mx-8 h-60"
+				src="busown6.webp"
 			/>
 			<img
-				alt=""
-				in:blur={{ duration: 500 }}
+
+			alt="Previous Client"
+				in:blur={{ duration: 500, delay: 300 }}
 				out:blur={{ duration: 100 }}
-				style="transform: translate({-(scrollY - innerHeight * (pageInt - 1.5)) * 0.4}px,0)"
-				class=" transition-transform duration-500 ease-out rounded-lg mx-8 h-60"
-				src="taco7.webp"
+				style="transform: translate({-(scrollY - innerHeight * (pageInt)-1000) * 0.4}px,0)"
+				class=" transition-transform  duration-1000 ease-out rounded-lg mx-8 h-60"
+				src="busown7.webp"
 			/>
 		{/if}
 	</div>

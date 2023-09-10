@@ -1,6 +1,7 @@
 <script>
 	import { blur } from 'svelte/transition';
 	import supabase from '$lib/db.js';
+	import Logo from './Logo.svelte';
 	/**
 	 * @type {HTMLInputElement}
 	 */
@@ -87,11 +88,12 @@
 			on:submit={submitForm}
 			class="bg-[#ecebe9] rounded-lg p-8 grid gap-x-2 md:mb-6 grid-cols-2 text-red-950 sm:w-[30rem] w-[23rem]"
 		>
+			<Logo />
 			<h1 class="col-span-2 font-bold font-serif text-xl text-red-950">
-				Unclaimed Medicare Benefits
+				Redeem your free digital resource
 			</h1>
 			<p class="col-span-2 mb-2 text-sm text-red-950 text-opacity-70">
-				Are you missing out? Take the first step in reclaiming what's yours today.
+				Fill out the form to have it delivered to your email
 			</p>
 			<div class="col-span-1">
 				<label for="first_name" class="mb-2 text-opacity-60 text-xs text-red-950">First Name*</label

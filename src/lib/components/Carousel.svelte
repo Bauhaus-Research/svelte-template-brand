@@ -4,29 +4,32 @@
 
 <section
 	id="background-section"
-	class="h-screen bg-neutral-900 flex-col flex px-10 md:px-20 py-28 justify-between bg-opacity-90 bg-blend-overlay"
-	style="background-image: url(taco3.webp);"
+	class="h-screen bg-neutral-900 flex-col flex px-10 md:px-20 py-28 justify-between bg-opacity-90 bg-blend-overlay object-center bg-center"
+	style="background-image: url(danny.webp);"
 >
-	<h1 class="text-white font-bold text-lg">What our users say</h1>
+	<h1 class="text-white font-bold text-base sm:text-lg">What our users say</h1>
 	<div class="">
-		<div class="relative text-4xl font-bold md:h-48 h-60">
+		<div class="relative text-2xl sm:text-4xl font-bold md:h-48 h-60">
 			<div class="flex flex-col justify-between infinite-fade-in md:h-48 h-60">
 				<h3 class="text-white w-full lg:w-1/2">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quae at. Ipsa facere
-					blanditiis.
+					We used them to rebuild a website that was outdated, the clients we've brought in since
+					the rebrand have been spending more
 				</h3>
-				<h3 class="text-white font-bold text-lg mt-8 w-1/2">Lorem Ipsum</h3>
+				<h3 class="text-white font-bold text-lg mt-8 w-1/2">Danny's Dinner</h3>
 			</div>
 			<div class="flex flex-col justify-between infinite-fade-in1 md:h-48 h-60 translate-y-[-100%]">
-				<h3 class="text-white w-full lg:w-1/2">Thanks {brandName}, we finally got our benefits</h3>
-				<h3 class="text-white font-bold text-lg mt-8 w-1/2">Lorem Ipsum</h3>
+				<h3 class="text-white w-full lg:w-1/2">
+					Ryan's team understood our needs. The flexible pricing options tailored specifically for
+					food truck owners like us.
+				</h3>
+				<h3 class="text-white font-bold text-sm sm:text-lg mt-8 w-1/2">Anchor Brewing</h3>
 			</div>
 			<div class="flex flex-col justify-between infinite-fade-in2 md:h-48 h-60 translate-y-[-200%]">
 				<h3 class="text-white w-full lg:w-1/2">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, quae at. Ipsa facere
-					blanditiis.
+					Since partnering with them, online orders have skyrocketed, and our customers keep coming
+					back for more. We couldn't be happier
 				</h3>
-				<h3 class="text-white font-bold text-lg mt-8 w-1/2">Lorem Ipsum</h3>
+				<h3 class="text-white font-bold text-lg mt-8 w-1/2">Habanero Tacos</h3>
 			</div>
 		</div>
 

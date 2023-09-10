@@ -7,12 +7,11 @@
 	 * @type {any}
 	 */
 	export let linkto;
-
-	export let calendly = 'https://calendly.com/bauhausresearch/flex-chat';
 	export let title = 'Plus Website';
 	export let tagline = '';
 	export let setupfee = '';
 	export let discountAmt = 0;
+	export let description = '';
 	export let features = `
     <li>Seo Optimized</li>
             <li>Responsive Mobile & Desktop Design</li>
@@ -58,21 +57,22 @@
 					${price}
 				</h1>
 				<div class="flex">
-					<h1 class="text-sm font-light text-neutral-600">/ per month + {setupfee} set-up fee</h1>
+					<h1 class="text-sm font-light text-neutral-600">/ per month </h1>
 				</div>
 			</div>{/if}
 		<a
 			href={linkto}
+			target="_blank"
 			class="px-6 py-2 bg-neutral-600 rounded-full {tagline.length > 1
 				? 'bg-red-900 text-neutral-100'
 				: 'bg-neutral-600 text-neutral-300'}  font-bold">Get Started</a
 		>
 		<p class="text-xs font-semibold text-neutral-500">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eius at explicabo fuga
+			{description}
 		</p>
 	</div>
 	<ul
-		class="bg-neutral-300 rounded-b-xl h-48 w-72 text-sm flex flex-col justify-evenly px-6 py-4 text-start"
+		class="bg-neutral-300 rounded-b-xl h-40 text-neutral-500 w-72 text-sm flex flex-col justify-evenly px-6 py-4 text-start"
 	>
 		{@html features}
 		<a class="text-orange-700 font-bold" href="/pricing#comparePlans"> Compare Plans</a>

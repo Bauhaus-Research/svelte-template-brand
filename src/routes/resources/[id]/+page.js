@@ -10,7 +10,8 @@ export function load({ params }) {
 		return {
 			title: contentDownload.title,
 			content: contentDownload.content,
-			image: contentDownload.image
+			image: contentDownload.image,
+			bg: contentDownload.bg
 		};
 	}
 

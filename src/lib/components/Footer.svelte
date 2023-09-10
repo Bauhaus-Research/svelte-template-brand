@@ -1,115 +1,55 @@
 <script>
-	import { onMount } from 'svelte';
-	import Coupon from './Coupon.svelte';
-	import { brandName } from '$lib/stores/brandStore.js';
-	import supabase from '$lib/db';
-
-	let newEmail = ' ';
-	/**
-	 * @type {HTMLInputElement}
-	 */
-	let email;
-	let formSuccess = false; // Variable to track form submission success
-
-	/**
-	 * @param {{ preventDefault: () => void; }} event
-	 */
-	async function submitForm(event) {
-		event.preventDefault();
-		// Validate form fields
-		formSuccess = true;
-
-		await supabase
-			.from('leadform')
-			.insert([{ email: email.value }])
-			.select();
-	}
+	import { brandName, calendly } from '$lib/stores/brandStore.js';
+	import va from '@vercel/analytics';
 </script>
 
+
+<section
+		class="h-96 bg-gradient-to-tr from-red-800 via-80% via-orange-600 to-amber-500 text-2xl sm:text-4xl font-bold text-white flex flex-col justify-center items-center"
+	>
+		<h2 class="max-w-5xl mx-6">
+			Accept your invite to join the most innovative team of web developers that you've ever met
+		</h2>
+		<div class="flex justify-between max-w-5xl w-full items-center">
+			<h6 class="text-sm sm:text-xl font-light ml-3">Ready to join?</h6>
+			<a
+				target="_blank" href="{calendly}"
+				on:click={() => {
+					va.track('start_today');
+				}}
+				class=" text-sm sm:text-xl my-2 text-stone-100 mr-3 bg-red-950 border-red-500 text-center transition-colors duration-300 delay-75 animate-pulse hover:animate-none font-semibold font-serif border-2 rounded-full px-8 py-2 w-48 shadow-xl"
+			>
+				Get Started
+			</a>
+		</div>
+	</section>
 <footer
 	id="footer"
 	class="z-40 col-span-12 bg-neutral-900 text-stone-200 sm:px-10 px-2 overflow-hidden grid grid-flow-row grid-cols-8 h-full w-full justify-center"
 >
-	<section class="bg-neutral-900 xl:col-span-4 col-span-8 flex flex-col mb-10">
-		<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-			<div class="mx-auto max-w-screen-md sm:text-center">
-				<h2 class="mb-4 text-3xl tracking-tight font-extrabold text-white sm:text-4xl">
-					Sign up for our newsletter
-				</h2>
-				<p
-					class="mx-auto mb-8 max-w-xl font-light text-gray-400 text-opacity-50 md:mb-12 sm:text-xl"
-				>
-					Stay up to date with new products, promotions, and sales.
-				</p>
-				<form action="#">
-					<div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
-						<div class="relative w-full">
-							<label for="email" class="hidden mb-2 text-sm font-medium text-gray-300"
-								>Email address</label
-							>
-							<div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-								<svg
-									class="w-5 h-5 text-gray-400"
-									fill="currentColor"
-									viewBox="0 0 20 20"
-									xmlns="http://www.w3.org/2000/svg"
-									><path
-										d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-									/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg
-								>
-							</div>
-							<input
-								class="block p-3 pl-10 w-full text-sm text-stone-100 bg-green-700 rounded-lg border border-gray-600 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500"
-								placeholder="Enter your email"
-								type="email"
-								id="email"
-								bind:value={newEmail}
-							/>
-						</div>
-						<div>
-							<button
-								on:click={submitForm}
-								type="submit"
-								class="py-3 px-5 w-full text-sm font-medium text-center text-white bg-white bg-opacity-40 rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300"
-								>Subscribe</button
-							>
-						</div>
-					</div>
-					<div
-						class="mx-auto max-w-screen-sm text-sm text-left text-gray-300 newsletter-form-footer"
-					>
-						We care about the protection of your data. <a
-							href="https://bauhausresearch.com/privacy"
-							class="font-medium text-primary-600 hover:underline">Read our Privacy Policy</a
-						>.
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
 	<section
 		class="text-stone-200 py-10 flex sm:flex-row flex-col justify-center items-center overflow-hidden col-span-8 xl:col-span-4"
 	>
-		<div class="w-4" />
-		<div class="flex flex-col text-white">
+		<div class="flex flex-col text-white col-span-full">
 			<a
-				href="/terms"
-				class="text-lg duration-200 transition-colors font-light hover:text-orange-400"
+				target="_blank" href="https://bauhausresearch.com"
+				class="text-sm sm:text-lg duration-200 transition-colors font-light hover:text-orange-400"
+				>Members Portal</a
+			>
+			<a
+				target="_self" href="/terms"
+				class="text-sm sm:text-lg duration-200 transition-colors font-light hover:text-orange-400"
 				>Terms of Use</a
 			>
 			<a
-				href="/privacy"
-				class="text-lg font-light duration-200 transition-colors hover:text-orange-400"
+				target="_self" href="/privacy"
+				class="text-sm sm:text-lg font-light duration-200 transition-colors hover:text-orange-400"
 				>Privacy Policy</a
 			>
 			<a
-				href="/cookies"
-				class="text-lg font-light duration-200 transition-colors hover:text-orange-400"
-				>Cookies Policy</a
-			>
-			<a
-				href="/support"
-				class="text-lg font-light duration-200 transition-colors hover:text-orange-400">Support</a
+				target="_self" href="/support"
+				class="text-sm sm:text-lg font-light duration-200 transition-colors hover:text-orange-400"
+				>Support</a
 			>
 		</div>
 	</section>
@@ -121,95 +61,6 @@
 	>
 		<!-- copyright -->
 		<p id="copyright tag">© {brandName} | All Right Reserved</p>
-		<ul class="flex flex-row gap-2">
-			<li>
-				<a href="https://facebook.com/" target="_blank">
-					<svg
-						class="h-10 w-10 -translate-y-5"
-						fill="white"
-						xmlns="http://www.w3.org/2000/svg"
-						width="32"
-						height="32"
-						viewBox="0 0 100 100"
-						><path
-							d="M80.3 16H19.8c-2 0-3.8 1.7-3.8 3.8v60.4c0 2 1.7 3.8 3.8 3.8h32.5V57.7h-8.8V47.4h8.8v-7.6c0-8.8 5.4-13.5 13.2-13.5 3.8 0 7 .2 8 .4V36H68c-4.3 0-5 2-5 4.8v6.6h10L72 57.7h-9V84h17.5c2 0 3.7-1.7 3.7-3.8V19.8c0-2-1.7-3.7-3.8-3.7"
-						/></svg
-					>
-				</a>
-			</li>
-			<li>
-				<a href="https://instagram.com/" target="_blank">
-					<svg
-						class="h-10 w-10 -translate-y-5"
-						fill="white"
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 100 100"
-						><path
-							d="M50 32.5c-9.6 0-17.5 8-17.5 17.5 0 9.6 8 17.5 17.5 17.5 9.6 0 17.5-8 17.5-17.5 0-9.6-8-17.5-17.5-17.5m0 28.8c-6.3 0-11.3-5-11.3-11.3 0-6.3 5-11.3 11.3-11.3 6.3 0 11.3 5 11.3 11.3 0 6.3-5 11.3-11.3 11.3zM72.2 32c0 2-1.8 4-4 4-2.3 0-4-2-4-4s1.7-4.2 4-4.2c2.2 0 4 1.8 4 4M50 22.2c9 0 10.2.2 13.7.3 3.4.2 5.2.7 6.4 1.2 1.6.6 2.8 1.3 4 2.5 1.2 1.2 2 2.4 2.5 4 .5 1 1 3 1.2 6.3 0 3.5.2 4.6.2 13.7 0 9-.2 10.2-.3 13.7-.2 3.4-.7 5.2-1.2 6.3-.6 1.6-1.3 2.8-2.5 4-1.2 1-2.4 2-4 2.5-1 .5-3 1-6.3 1.2-3.5 0-4.6.2-13.7.2-9 0-10.2-.2-13.7-.3-3.4-.2-5.2-.7-6.4-1.2-1.6-.6-2.8-1.3-4-2.5-1-1.2-2-2.4-2.5-4-.5-1-1-3-1.2-6.3 0-3.5-.2-4.6-.2-13.7 0-9 .2-10.2.3-13.7.2-3.4.7-5.2 1.2-6.4.6-1.6 1.4-2.8 2.5-4 1.2-1 2.4-2 4-2.5 1-.5 3-1 6.3-1.2 3.5 0 4.6-.2 13.7-.2m0-6c-9.2 0-10.4 0-14 .2-3.6.2-6 .7-8.3 1.6-2.2 1-4 2-6 4-2 1.8-3 3.7-4 6-.8 2-1.3 4.6-1.5 8.2-.2 3.6-.2 4.8-.2 14s0 10.4.2 14c.2 3.6.7 6 1.6 8.3 1 2.2 2 4 4 6s3.7 3 6 4c2 .8 4.6 1.3 8.2 1.5 3.6.2 4.8.2 14 .2s10.4 0 14-.2c3.6-.2 6-.7 8.3-1.6 2.2-1 4-2 6-4 2-1.8 3-3.7 4-6 .8-2 1.3-4.6 1.5-8.2.2-3.6.2-4.8.2-14s0-10.4-.2-14c-.2-3.6-.7-6-1.6-8.3-1-2.2-2-4-4-6-1.8-2-3.7-3-6-4-2-.8-4.6-1.3-8.2-1.5-3.6-.2-4.8-.2-14-.2z"
-						/></svg
-					>
-				</a>
-			</li>
-			<li>
-				<a href="https://twitter.com/" target="_blank">
-					<svg
-						class="h-8 w-8 -translate-y-4"
-						viewBox="0 0 1200 1227"
-						fill="white"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
-							fill="white"
-						/>
-					</svg>
-				</a>
-			</li>
-			<li>
-				<a href="https://skype.com/" target="_blank">
-					<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-					<svg
-						fill="#ffffff"
-						class="h-8 w-8 -translate-y-4"
-						version="1.1"
-						id="Layer_1"
-						xmlns="http://www.w3.org/2000/svg"
-						xmlns:xlink="http://www.w3.org/1999/xlink"
-						viewBox="0 0 455 455"
-						xml:space="preserve"
-					>
-						<g>
-							<path
-								style="fill-rule:evenodd;clip-rule:evenodd;"
-								d="M285.828,224.324c-6.357-4.187-14.031-7.709-23.039-10.631
-								c-9.021-2.905-19.071-5.569-30.126-7.963c-8.82-2.069-15.177-3.64-19.005-4.716c-3.776-1.063-7.538-2.533-11.244-4.428
-								c-3.692-1.881-6.58-4.104-8.649-6.667c-2.034-2.529-3.041-5.499-3.058-9.021c0.017-5.622,2.975-10.408,9.161-14.543
-								c6.151-4.069,14.284-6.156,24.469-6.156c11.008-0.018,18.904,1.916,23.704,5.626c4.922,3.793,9.144,9.091,12.683,15.872
-								c2.8,4.874,5.381,8.361,7.844,10.566c2.529,2.271,6.169,3.329,10.815,3.329c5.145,0.017,9.555-1.829,13.007-5.469
-								c3.452-3.623,5.211-7.774,5.211-12.338c0-4.904-1.365-9.949-4.099-15.089c-2.717-5.145-7.039-10.032-12.902-14.682
-								c-5.88-4.646-13.265-8.356-22.098-11.161c-8.868-2.8-19.364-4.187-31.461-4.187c-15.159,0-28.389,2.104-39.615,6.326
-								c-11.261,4.204-19.911,10.268-25.891,18.182c-5.963,7.879-8.956,16.953-8.956,27.086c0,10.631,2.822,19.604,8.492,26.814
-								c5.657,7.162,13.296,12.819,22.886,16.953c9.586,4.139,21.411,7.726,35.547,10.802c10.526,2.222,18.935,4.323,25.191,6.322
-								c6.234,1.951,11.261,4.769,15.159,8.479c3.841,3.64,5.723,8.321,5.723,14.219c0,7.398-3.487,13.519-10.749,18.541
-								c-7.21,4.992-16.647,7.503-28.333,7.503c-8.531,0-15.347-1.229-20.475-3.71c-5.18-2.476-9.178-5.639-12.014-9.432
-								c-2.857-3.828-5.556-8.632-8.033-14.389c-2.052-4.957-4.581-8.715-7.591-11.296c-3.041-2.599-6.751-3.898-11.091-3.898
-								c-5.298,0-9.774,1.658-13.261,4.974c-3.434,3.299-5.211,7.332-5.211,11.961c0,7.88,2.853,15.947,8.509,24.185
-								c5.622,8.238,12.954,14.831,21.976,19.753c12.718,6.891,28.814,10.29,48.265,10.29c16.236,0,30.284-2.494,42.175-7.521
-								c11.878-4.988,20.952-11.944,27.138-20.847c6.186-8.89,9.297-18.922,9.279-30.096c0-9.262-1.776-17.141-5.364-23.586
-								C297.229,233.839,292.219,228.511,285.828,224.324z"
-							/>
-							<path
-								style="fill-rule:evenodd;clip-rule:evenodd;"
-								d="M0,0v455h455V0H0z M296.677,385c-17.019,0-32.896-4.834-46.379-13.143
-								c-7.433,1.181-15.054,1.781-22.816,1.781c-80.697,0-146.116-65.424-146.116-146.138c0-7.774,0.63-15.348,1.776-22.798
-								C74.821,191.201,70,175.341,70,158.322C70,109.528,109.546,70,158.323,70c17.019,0,32.896,4.821,46.362,13.142
-								c7.433-1.164,15.059-1.794,22.816-1.794c80.714,0,146.134,65.419,146.134,146.151c0,7.761-0.613,15.365-1.794,22.798
-								c8.339,13.484,13.16,29.361,13.16,46.384C385,345.454,345.454,385,296.677,385z"
-							/>
-						</g>
-					</svg>
-				</a>
-			</li>
-		</ul>
+		
 	</section>
 </footer>

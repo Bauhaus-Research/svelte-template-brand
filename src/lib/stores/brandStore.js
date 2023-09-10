@@ -2,6 +2,7 @@
 import { readable } from 'svelte/store';
 
 export let brandName = 'Bauhaus Research';
+export let calendly = 'https://calendly.com/streetfoodservices/15min';
 export let brandStory =
 	'We are a company that wants to get your company started in their first food truck';
 export let tagline = 'Our Mission';
@@ -249,55 +250,98 @@ export let websiteServices = [
 		Premium: 'Add-On'
 	}
 ];
+export let logoName = 'logo';
 
-export let aboutUs = [
-	{
-		title: 'Puerto Rican Cooking',
-		subtitle: 'Loremipsum',
-		icon: 'pr.svg'
-	},
-	{
-		title: 'Fresh Ingredients',
-		subtitle: 'Loremipsum',
-		icon: 'lettuce.svg'
-	},
-	{
-		title: 'Community',
-		subtitle: 'Well regarded among the community.',
-		icon: 'community.svg'
-	}
-];
 export let contactOptions = [
 	{
 		title: 'Email Us',
-		icon: 'lettuce',
+		icon: 'mail',
 		p: `
         Contact Support anytime for updates <span><a class="text-red-800 font-bold" href="mailto:someone@yoursite.com">support@streetfoodservice.us</a></span>
         `
 	},
 	{
-		title: 'Albert',
-		icon: 'lettuce',
+		title: 'Contact Form',
+		icon: 'human',
 		p: `
-       For general questions 24/7, meet:
+       For quicker service, use our
         `
 	},
 	{
-		title: 'Contact Form',
-		icon: 'lettuce',
+		title: 'Albert',
+		icon: 'robot',
 		p: `
-       For quicker service, use our
+       For general questions 24/7, meet:
         `
 	}
 ];
 export let contentDown = [
 	{
-		title: '25 Creative Instagram Ideas for Restaurants',
-		content: `No amount of tactics, hacks, or best practices can overcome mediocre Instagram content.
-
-		To help with this, we’ve curated 25 great examples of restaurant Instagram content and packaged them for easy reading and brainstorming. If you download the report, you'll get all of the following:`,
-		image: ''
+		title:
+			'Craft a compelling content strategy that drives organic traffic and boosts your online presence.',
+		content: `Craft a compelling content strategy that drives organic traffic and boosts your online presence. Learn the art of content creation, including blog writing, video marketing, and social media, to engage your audience and increase your digital footprint.`,
+		image: 'img1.webp',
+		bg: 'bg-orange-100'
+	},
+	{
+		title: `Enhance your website's credibility and user experience with strategic SEO techniques.`,
+		content: `Enhance your website's credibility and user experience with strategic SEO techniques. Explore advanced SEO tactics, such as schema markup and site speed optimization, to boost your website's performance and authority.`,
+		image: 'img2.webp',
+		bg: 'bg-amber-300'
+	},
+	{
+		title: `Navigate the world of responsive web design and ensure your site looks flawless on all devices.`,
+		content: `Navigate the world of responsive web design and ensure your site looks flawless on all devices. Discover the importance of responsive design and how it can improve user experience across desktops, tablets, and smartphones.`,
+		image: 'img3.webp',
+		bg: 'bg-yellow-300'
+	},
+	{
+		title: `Elevate your brand with a visually stunning website that captivates your visitors.`,
+		content: `Elevate your brand with a visually stunning website that captivates your visitors. Learn how design elements, color psychology, and visual storytelling can make your website an unforgettable online destination.`,
+		image: 'img4.webp',
+		bg: 'bg-purple-300'
+	},
+	{
+		title: `Unleash the power of SEO to attract, engage, and convert your target audience.`,
+		content: `Unleash the power of SEO to attract, engage, and convert your target audience. Explore the intricacies of SEO strategies, including local SEO, backlink building, and content optimization, to connect with your ideal customers.`,
+		image: 'img5.webp',
+		bg: 'bg-orange-300'
+	},
+	{
+		title: `Master the nuances of user-centric web design and transform your digital footprint.`,
+		content: `Master the nuances of user-centric web design and transform your digital footprint. Delve into the world of user experience (UX) and user interface (UI) design to create websites that captivate and convert.`,
+		image: 'img6.webp',
+		bg: 'bg-orange-300'
+	},
+	{
+		title: `Revamp your website with cutting-edge design trends for maximum impact.`,
+		content: `Master the nuances of user-centric web design and transform your digital footprint. Delve into the world of user experience (UX) and user interface (UI) design to create websites that captivate and convert.`,
+		image: 'img7.webp',
+		bg: 'bg-neutral-300'
+	},
+	{
+		title: `Discover the art of SEO optimization and watch your website climb the ranks.`,
+		content: `Discover the art of SEO optimization and watch your website climb the ranks. Dive into the intricacies of SEO, from keyword research to on-page and off-page techniques, and witness your website rise through search engine results pages.`,
+		image: 'img8.webp',
+		bg: 'bg-neutral-300'
+	},
+	{
+		title: `Unlock the secrets to successful online marketing with our comprehensive guide.`,
+		content: `Unlock the secrets to successful online marketing with our comprehensive guide. Explore the world of digital marketing, from content creation and SEO to social media strategies, and elevate your brand's online visibility."`,
+		image: 'img9.webp',
+		bg: 'bg-green-100'
+	},
+	{
+		title: `Supercharge your online presence with our expert website design and SEO strategies.`,
+		content: `Supercharge your online presence with our expert website design and SEO strategies. Learn how to create visually captivating websites that not only engage your audience but also rank high on search engines, driving organic traffic to your digital doorstep.`,
+		image: 'img10.webp',
+		bg: 'bg-green-100'
 	}
+	// {
+	// 	title:``,
+	// 	content: ``,
+	// 	image: ``,
+	// }
 ];
 
 export let pressRel = [
@@ -610,76 +654,76 @@ export let pressRel = [
 		subtitle: 'Loremipsum',
 		slug: '9quwxqyebx',
 		content: `
+
 		<!DOCTYPE html>
-<html lang="en">
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Boosting Business: Street Food Services Helps Anchor Brewery's Food Truck</title>
+		</head>
+		<body class="bg-gray-100">
+			<header class="text-red-900 text-center py-4">
+				<h1 class="text-3xl font-semibold">Anchor came to us when they were lost</h1>
+			</header>
+		
+			<article class="mx-8 my-6 text-gray-800 text-lg">
+				<p>
+					The food truck industry is known for its cutthroat competition, with trucks vying for attention in a crowded marketplace.
+					In this fierce landscape, even established names like Anchor Brewery face challenges when it comes to maximizing the potential of their food truck.
+				</p>
+		
+				<p>
+					Street Food Services recently partnered with Anchor Brewery in San Francisco to help them enhance their food truck's online presence
+					and drive more customers to their brewery. This case study explores how our expertise made a significant impact on their business.
+				</p>
+		
+				<h2 class="text-2xl font-semibold my-4">The Competitive Challenge</h2>
+				<p>
+					Anchor Brewery's food truck was serving fantastic dishes, but they struggled to reach their target audience effectively.
+					With numerous other food trucks in the area, standing out was a daunting task.
+				</p>
+		
+				<h2 class="text-2xl font-semibold my-4">How Street Food Services Stepped In</h2>
+				<p>
+					Street Food Services assessed Anchor Brewery's unique needs and crafted a tailored solution to address their challenges.
+					Here's how we made a difference:
+				</p>
+		
+				<ul class="list-disc ml-8">
+					<li><strong>Stunning Website Redesign:</strong> We created an attractive and user-friendly website for the food truck, featuring mouthwatering visuals and an easy-to-navigate menu.</li>
+					<li><strong>Optimized SEO:</strong> We implemented a robust SEO strategy to improve the food truck's visibility in local search results, ensuring that potential customers could easily find them.</li>
+					<li><strong>Social Media Boost:</strong> Our team enhanced their social media presence, engaging with customers and promoting special events to increase brand awareness.</li>
+					<li><strong>Online Ordering System:</strong> We integrated a streamlined online ordering system, allowing customers to place orders in advance, which helped boost sales during peak hours.</li>
+				</ul>
+		
+				<h2 class="text-2xl font-semibold my-4">The Results</h2>
+				<p>
+					Thanks to the partnership with Street Food Services, Anchor Brewery's food truck saw a remarkable turnaround in its business:
+				</p>
+		
+				<ul class="list-disc ml-8">
+					<li><strong>Increased Foot Traffic:</strong> The brewery's food truck experienced a notable increase in customers visiting their location.</li>
+					<li><strong>Higher Online Visibility:</strong> Improved SEO and social media efforts led to higher online visibility and better search rankings.</li>
+					<li><strong>Enhanced Customer Engagement:</strong> Online ordering and a more interactive website led to increased customer engagement and loyalty.</li>
+				</ul>
+		
+				<h2 class="text-2xl font-semibold my-4">Experience the Transformation</h2>
+				<p>
+					The Anchor Brewery food truck case study demonstrates the transformative power of a strategic online presence.
+					If your food truck business faces similar challenges, consider partnering with Street Food Services.
+					Contact us today and let us help you boost your business to new heights, just like we did for Anchor Brewery.
+				</p>
+			</article>
+		
+			<footer class="text-red-900 hover:text-green-900 duration-150 transition-colors text-center py-4">
+				<p class="text-lg">Ready to elevate your food truck's success? <strong>Contact Street Food Services now!</strong></p>
+			</footer>
+		</body>
+		</html>
+		
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boosting Business: Street Food Services Helps Anchor Brewery's Food Truck</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-</head>
 
-<body class="bg-gray-100">
-    <header class=" text-red-900 text-center py-4">
-        <h1 class="text-3xl font-semibold">Anchor came to us when they were lost</h1>
-    </header>
-
-    <article class="mx-8 my-6 text-gray-800 text-lg">
-        <p>
-            The food truck industry is known for its cutthroat competition, with trucks vying for attention in a crowded marketplace.
-            In this fierce landscape, even established names like Anchor Brewery face challenges when it comes to maximizing the potential of their food truck.
-        </p>
-
-        <p>
-            Street Food Services recently partnered with Anchor Brewery in San Francisco to help them enhance their food truck's online presence
-            and drive more customers to their brewery. This case study explores how our expertise made a significant impact on their business.
-        </p>
-
-        <h2 class="text-2xl font-semibold my-4">The Competitive Challenge</h2>
-        <p>
-            Anchor Brewery's food truck was serving fantastic dishes, but they struggled to reach their target audience effectively.
-            With numerous other food trucks in the area, standing out was a daunting task.
-        </p>
-
-        <h2 class="text-2xl font-semibold my-4">How Street Food Services Stepped In</h2>
-        <p>
-            Street Food Services assessed Anchor Brewery's unique needs and crafted a tailored solution to address their challenges.
-            Here's how we made a difference:
-        </p>
-
-        <ul class="list-disc ml-8">
-            <li><strong>Stunning Website Redesign:</strong> We created an attractive and user-friendly website for the food truck, featuring mouthwatering visuals and an easy-to-navigate menu.</li>
-            <li><strong>Optimized SEO:</strong> We implemented a robust SEO strategy to improve the food truck's visibility in local search results, ensuring that potential customers could easily find them.</li>
-            <li><strong>Social Media Boost:</strong> Our team enhanced their social media presence, engaging with customers and promoting special events to increase brand awareness.</li>
-            <li><strong>Online Ordering System:</strong> We integrated a streamlined online ordering system, allowing customers to place orders in advance, which helped boost sales during peak hours.</li>
-        </ul>
-
-        <h2 class="text-2xl font-semibold my-4">The Results</h2>
-        <p>
-            Thanks to the partnership with Street Food Services, Anchor Brewery's food truck saw a remarkable turnaround in its business:
-        </p>
-
-        <ul class="list-disc ml-8">
-            <li><strong>Increased Foot Traffic:</strong> The brewery's food truck experienced a notable increase in customers visiting their location.</li>
-            <li><strong>Higher Online Visibility:</strong> Improved SEO and social media efforts led to higher online visibility and better search rankings.</li>
-            <li><strong>Enhanced Customer Engagement:</strong> Online ordering and a more interactive website led to increased customer engagement and loyalty.</li>
-        </ul>
-
-        <h2 class="text-2xl font-semibold my-4">Experience the Transformation</h2>
-        <p>
-            The Anchor Brewery food truck case study demonstrates the transformative power of a strategic online presence.
-            If your food truck business faces similar challenges, consider partnering with Street Food Services.
-            Contact us today and let us help you boost your business to new heights, just like we did for Anchor Brewery.
-        </p>
-    </article>
-
-    <footer class=" text-red-900 hover:text-green-900 duration-150 transition-colors text-center py-4">
-        <p class="text-lg">Ready to elevate your food truck's success? <strong>Contact Street Food Services now!</strong></p>
-    </footer>
-</body>
-
-</html>
 		`,
 		icon: 'pr.svg',
 		location: 'San Francisco',
@@ -712,10 +756,11 @@ export let faqItem = [
 export let prodItem = [
 	{
 		tagline: '',
-		title: 'Hobby',
-		price: 79.95,
-		setupfee: '1800',
-		linkto: '/',
+		title: 'Core',
+		price: 4499.95,
+		// setupfee: '1800',
+		description: `The Basic Plan includes essential services that you'll need when starting your website.`,
+		linkto: 'https://buy.stripe.com/7sIeWu0Ng6vE2oU7sy',
 		features: `
  <li>Seo Optimized</li>
 		<li>Responsive Mobile & Desktop Design</li>
@@ -724,38 +769,108 @@ export let prodItem = [
 	},
 	{
 		tagline: 'Most Popular',
-		title: 'Pro',
-		price: 129.95,
-		setupfee: '1800',
-		linkto: '',
+		title: 'Standard',
+		price: 6299.95,
+		description:
+			'Food truck owners who want to grow their online presence and customer engagement.',
+		// setupfee: '1800',
+		linkto: 'https://buy.stripe.com/eVacOmbrU1bk8Ni8wD',
 		features: `
- <li>Everything from the Hobbyist plan</li>
-		<li>Responsive Mobile & Desktop Design</li>
-		<li>Forms for Newsletters, job inquires, etc</li>
+		<li>Everything from the Hobbyist plan</li>
+		<li>Personalized CMS</li>
+		<li>Eccomerce Product Listing, etc</li>
 `
 	},
 	{
 		tagline: '',
-		linkto: '',
-		title: 'Enterprise',
-		price: 299.95,
-		setupfee: '1800',
+		linkto: 'https://buy.stripe.com/9AQ5lU2VoaLU0gM9AI',
+		title: 'Premium',
+		price: 7999.95,
+		description: 'Food truck owners who want a comprehensive online strategy and support.',
+		// setupfee: '1800',
 		features: `
- <li>Seo Optimized</li>
-		<li>Responsive Mobile & Desktop Design</li>
-		<li>Forms for Newsletters, job inquires, etc</li>
+		<li>Premium SEO</li>
+		<li>Analytics and Reporting</li>
+		<li>Mobile App add-on, etc</li>
 `
 	},
 	{
 		tagline: '',
 		linkto: '/pricing#customPricing',
 		title: 'Custom Pricing',
+		description: 'Best option for clients that require more fleixbility',
 		price: 'Contact Us',
 		setupfee: '',
 		features: `
- <li>Seo Optimized</li>
-		<li>Responsive Mobile & Desktop Design</li>
-		<li>Forms for Newsletters, job inquires, etc</li>
+		<li>Flexible Delivery</li>
+		<li>Flexible Payment Schedule</li>
+		<li>Custom CMS</li>
 `
 	}
 ];
+
+export let p = [
+	{
+		q2: 'q2',
+		slug: 'q3',
+		color1: '#228B22',
+		color2: '#228B22',
+		text_light: false,
+		int: 0,
+		title: ` Are you looking to enhance your food truck business's online presence?`
+	},
+	{
+		q2: 'q3',
+		slug: 'q2',
+		color1: '#0F4C81',
+		color2: '#FFD700',
+		text_light: true,
+		int: 0,
+		title: ` Would you like a visually appealing website design to showcase your menu and brand?`
+	}
+];
+
+// export let welcomeQuestions =[
+
+// 1. **Welcome to Street Food Services!** Are you looking to enhance your food truck business's online presence?
+
+// 2. **Have you considered what specific features or functionalities you need for your food truck website?** (This question sets the stage for modular development.)
+
+// 3. **Would you like a visually appealing website design to showcase your menu and brand?**
+
+// 4. **Do you need an online ordering system to allow customers to place orders directly from your website?**
+
+// 5. **Are customer reviews and testimonials important to display on your website?**
+
+// 6. **Do you require a blog or news section to keep your customers updated on your latest offerings and events?**
+
+// 7. **Would you like to integrate social media feeds into your website for better engagement with your customers?**
+
+// 8. **Is it essential for your website to be mobile-responsive for customers on the go?**
+
+// 9. **Do you need a booking or reservation system for special events or catering services?**
+
+// 10. **Are you interested in search engine optimization (SEO) services to improve your website's visibility in online searches?**
+
+// 11. **Would you like to include a gallery or portfolio section to showcase your food truck's mouthwatering creations?**
+
+// 12. **Do you need assistance with domain registration and hosting services for your website?**
+
+// 13. **Are you interested in ongoing website maintenance and updates to ensure your site remains current and secure?**
+
+// 14. **Have you thought about integrating an email marketing system to keep your customers informed about promotions and events?**
+
+// 15. **Do you have any specific custom features or functionalities in mind for your website?**
+
+// 16. **Are there any competitors' websites or examples you admire that you'd like to use as inspiration for your own website?**
+
+// 17. **What's your timeline for getting your website up and running?**
+
+// 18. **Do you have a budget in mind for your website development and ongoing maintenance?**
+
+// 19. **Would you like to receive a personalized quote based on the specific features and services you need?**
+
+// 20. **Is there any additional information or specific goals you'd like to share with us to ensure your website meets your expectations?**
+
+// These questions will help users understand that your company offers modular web development services, allowing them to customize and build their food truck website according to their unique needs and preferences. It also opens the door for personalized recommendations and quotes based on their requirements.
+// ]

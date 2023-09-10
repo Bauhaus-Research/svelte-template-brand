@@ -23,7 +23,7 @@
 </script>
 
 <div class="flex-col flex group text-end mr-4">
-	<a href="/mission#locations" class="text-xs font-light"
+	<a target="_self" href="/mission#locations" class="text-xs font-light"
 		><strong class="font-bold group-hover:underline">Seminole Heights</strong></a
 	>
 	<h1 class="text-sm font-light">{openMessage}</h1>

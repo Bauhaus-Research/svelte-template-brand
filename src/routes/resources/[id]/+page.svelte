@@ -9,8 +9,8 @@
 
 <svelte:window {innerHeight} {scrollY} />
 <Nav {innerHeight} {scrollY} />
-<section class="bg-neutral-100 flex md:flex-row flex-col min-h-screen justify-evenly items-center">
-	<div class="w-auto mx-20 md:mx-0 md:w-80 lg:w-96">
+<section class="{data.bg} flex md:flex-row flex-col min-h-screen justify-evenly items-center">
+	<div class="w-auto mx-10 md:mx-0 md:w-80 lg:w-96">
 		<h2 class="text-2xl md:text-4xl font-bold mt-24">
 			{data.title}
 		</h2>
